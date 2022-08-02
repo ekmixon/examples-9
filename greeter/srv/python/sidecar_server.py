@@ -12,12 +12,15 @@ def register():
     headers = {'content-type': 'application/json'}
     payload = {
         "name": service,
-        "nodes": [{
-            "id": service + "-" + str(uuid.uuid4()),
-            "address": "127.0.0.1",
-            "port": 4000,
-        }],
+        "nodes": [
+            {
+                "id": f"{service}-{str(uuid.uuid4())}",
+                "address": "127.0.0.1",
+                "port": 4000,
+            }
+        ],
     }
+
     requests.post(register_uri, data=json.dumps(payload), headers=headers)
 
 @Request.application

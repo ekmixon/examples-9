@@ -9,11 +9,13 @@ import proxy
 
 service = {
     "name": "go.micro.srv.greeter",
-    "nodes": [{
-        "id": "go.micro.srv.greeter-" + str(uuid.uuid4()),
-        "address": "127.0.0.1",
-        "port": 4000,
-    }],
+    "nodes": [
+        {
+            "id": f"go.micro.srv.greeter-{str(uuid.uuid4())}",
+            "address": "127.0.0.1",
+            "port": 4000,
+        }
+    ],
 }
 
 @Request.application
